@@ -9,21 +9,20 @@ class sortedList():
             random = randrange(0, len(self._list))
             self._list.insert(i, self._list.pop(random))
                                                                                                                         
-    def mergeSort(self):
+    def mergesort(self):
         self._list = self._split(self._list)
-
         while(len(self._list) > 1):
-            r = []; i = 0
 
+            r = []; i = 0
             while(i < len(self._list)):
                 left = self._list[i:i+1]; 
                 right = self._list[i+1:i+2]
-
                 r.append(self.merge(left[0], right[0] if(len(right) > 0) else []))
                 i += 2
+
             self._list = r
-        
-        self._list = [] if(len(self._list) == 0) else self._list[0]
+
+        self._list = self._list[0] if(len(self._list) > 0) else []
 
     def merge(self, left, right): 
         merge = []
@@ -56,11 +55,20 @@ class sortedList():
     def getList(self):                                                                                                  
         return self._list                                                                                               
                                                                                                                         
-a = sortedList([1])                                                                                                      
-print(f'original: {a.getList()}')                                                                                                      
+a = sortedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+print(f'original: {a.getList()}')
 
-a.shuffle()                                                                                                             
-print(f'shuffle: {a.getList()}')                    
+a.shuffle()
+print(f'shuffle: {a.getList()}') 
 
-a.mergeSort()
-print(f'sorted: {a.getList()}')                    
+a.mergesort()
+print(f'sorted: {a.getList()}')
+
+b  = sortedList([])
+print(f'original: {b.getList()}')
+
+b.shuffle()
+print(f'shuffle: {b.getList()}') 
+
+b.mergesort()
+print(f'sorted: {b.getList()}')
