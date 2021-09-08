@@ -1,8 +1,10 @@
-
+import sortedlist
    def _split(self, m, r): # m is list to be split, r is recursive memory
         max = int(len(m)/2)
         left = m[0:len(m)-max]
         right = m[len(m)-max:len(m)]
+        
+
 
         if(len(left) > 1): # depth first
             self._split(left, r)

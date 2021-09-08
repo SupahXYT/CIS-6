@@ -9,7 +9,7 @@ class sortedList():
             random = randrange(0, len(self._list))
             self._list.insert(i, self._list.pop(random))
                                                                                                                         
-    def mergesort(self):
+    def mergesort(self): # iterative approach 
         self._list = self._split(self._list)
         while(len(self._list) > 1):
 
@@ -23,6 +23,9 @@ class sortedList():
             self._list = r
 
         self._list = self._list[0] if(len(self._list) > 0) else []
+    
+    def quicksort(self):
+        pivot = randrange(0, len(self._list))
 
     def merge(self, left, right): 
         merge = []
@@ -55,7 +58,8 @@ class sortedList():
     def getList(self):                                                                                                  
         return self._list                                                                                               
                                                                                                                         
-a = sortedList([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+# runner code 
+a = sortedList([1, 2, 3, 4, 5])
 print(f'original: {a.getList()}')
 
 a.shuffle()

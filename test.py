@@ -27,7 +27,6 @@ def merge(left, right): # Returns merged list (sorted)
 
     return merge
 
-
 a = [[7], [6], [2], [5], [1], [3], [7]]
 
 pairs = int(len(a)/2) + len(a)%2
